@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/Empleados")
+@RequestMapping("/empleados")
 public class ControladorEmpleados {
      @Autowired 
     ServiciosEmpleado sEmpleado;
     
-    @GetMapping("/Saludo")
+    @GetMapping("/saludo")
     public String saludoBienvenida(){
         return "Este es el mensaje de bienvenida";
     }
