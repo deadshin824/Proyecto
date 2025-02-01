@@ -1,8 +1,8 @@
 
-package com.example.Proyecto.Services;
+package com.example.Proyecto.Servicios;
 
 import com.example.Proyecto.Entidades.Empleados;
-import com.example.Proyecto.Repositories.RepositorioEmpleados;
+import com.example.Proyecto.Repositorio.RepositorioEmpleados;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

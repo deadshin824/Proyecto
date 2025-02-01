@@ -2,7 +2,7 @@
 package com.example.Proyecto.Controlador;
 
 import com.example.Proyecto.Entidades.Empleados;
-import com.example.Proyecto.Services.ServiciosEmpleado;
+import com.example.Proyecto.Servicios.ServiciosEmpleado;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
