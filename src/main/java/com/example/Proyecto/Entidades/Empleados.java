@@ -9,54 +9,50 @@ import jakarta.persistence.Id;
 public class Empleados {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long idEmpleado;
-    private String NombreCompleto;
-    private String User;
-    private String Password;
+    public Integer idEmpleado;
+    public String NombreCompleto;
+    public String User;
+    public String Password;
 
     public Empleados() {
     }
 
-    public Empleados(long idEmpleado, String NombreCompleto, String User, String Password) {
+    public Empleados(Integer idEmpleado, String nombreCompleto, String user, String password) {
         this.idEmpleado = idEmpleado;
-        this.NombreCompleto = NombreCompleto;
-        this.User = User;
-        this.Password = Password;
+        NombreCompleto = nombreCompleto;
+        User = user;
+        Password = password;
     }
 
-    public void setIdEmpleado(long idEmpleado) {
-        this.idEmpleado = idEmpleado;
-    }
-
-    public void setNombreCompleto(String NombreCompleto) {
-        this.NombreCompleto = NombreCompleto;
-    }
-
-    public void setUser(String User) {
-        this.User = User;
-    }
-
-    public void setPassword(String Password) {
-        this.Password = Password;
-    }
-
-    public long getIdEmpleado() {
+    public Integer getIdEmpleado() {
         return idEmpleado;
+    }
+
+    public void setIdEmpleado(Integer idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public String getNombreCompleto() {
         return NombreCompleto;
     }
 
+    public void setNombreCompleto(String nombreCompleto) {
+        NombreCompleto = nombreCompleto;
+    }
+
     public String getUser() {
         return User;
+    }
+
+    public void setUser(String user) {
+        User = user;
     }
 
     public String getPassword() {
         return Password;
     }
 
-   
-    
-    
+    public void setPassword(String password) {
+        Password = password;
+    }
 }

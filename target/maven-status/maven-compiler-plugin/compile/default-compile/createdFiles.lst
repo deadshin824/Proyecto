@@ -1,5 +1,9 @@
-com\example\Proyecto\ProyectoApplication.class
-com\example\Proyecto\Servicios\ServiciosEmpleado.class
+com\example\Proyecto\Servicios\ServiciosAdmin.class
 com\example\Proyecto\Repositorio\RepositorioEmpleados.class
 com\example\Proyecto\Entidades\Empleados.class
 com\example\Proyecto\Controlador\ControladorEmpleados.class
+com\example\Proyecto\ProyectoApplication.class
+com\example\Proyecto\Servicios\ServiciosEmpleado.class
+com\example\Proyecto\Repositorio\RepositorioAdministrador.class
+com\example\Proyecto\Controlador\ControladorAdmin.class
+com\example\Proyecto\Entidades\Administrador.class
