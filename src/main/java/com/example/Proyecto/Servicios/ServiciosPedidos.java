@@ -29,6 +29,20 @@ public class ServiciosPedidos {
         return rPedidos.findById(id).orElse(null);
     }
 
+    public boolean actualizarPedido(Integer id, Pedidos nuevoPedido) {
+        return rPedidos.findById(id).map(pedidoExistente -> {
+            pedidoExistente.setPedido(nuevoPedido.getPedido());
+            pedidoExistente.setPrecio(nuevoPedido.getPrecio());
+            pedidoExistente.setEstado(nuevoPedido.getEstado());
+
+            rPedidos.save(pedidoExistente);
+            return true;
+        }).orElse(false);
+    }
+
+
+
+
     public void eliminar(Integer id){
         rPedidos.deleteById(id);
     }

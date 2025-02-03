@@ -9,6 +9,7 @@ com\example\Proyecto\Controlador\ControladorAdmin.class
 com\example\Proyecto\Servicios\ServiciosAdmin.class
 com\example\Proyecto\Entidades\Empleados.class
 com\example\Proyecto\Entidades\Pedidos.class
+com\example\Proyecto\ProyectoApplication$1.class
 com\example\Proyecto\Controlador\ControladorPedidos.class
 com\example\Proyecto\Repositorio\RepositorioClientes.class
 com\example\Proyecto\Repositorio\RepositorioAdministrador.class

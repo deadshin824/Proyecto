@@ -45,6 +45,16 @@ public class ControladorPedidos {
         }
     }
 
+    @PutMapping("/ActualizarPedido/{id}")
+    public ResponseEntity<String> actualizarPedido(@PathVariable Integer id, @RequestBody Pedidos nuevoPedido) {
+        if (sPedidos.actualizarPedido(id, nuevoPedido)) {
+            return ResponseEntity.ok("Pedido actualizado correctamente");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pedido no encontrado");
+        }
+    }
+
+
     @DeleteMapping("/EliminarPedido/{id}")
     public ResponseEntity<String> eliminarPedido(@PathVariable Integer id) {
         Pedidos pedido = sPedidos.obtenerPorId(id);
