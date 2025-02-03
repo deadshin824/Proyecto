@@ -24,4 +24,12 @@ public class ServiciosAdmin {
             return false;
         }
     }
+
+    public Administrador obtenerPorId(Integer id) {
+        return rAdmin.findById(id).orElse(null);
+    }
+
+    public void eliminar(Integer id){
+        rAdmin.deleteById(id);
+    }
 }

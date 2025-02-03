@@ -1,6 +1,7 @@
 
 package com.example.Proyecto.Servicios;
 
+import com.example.Proyecto.Entidades.Administrador;
 import com.example.Proyecto.Entidades.Empleados;
 import com.example.Proyecto.Repositorio.RepositorioEmpleados;
 import java.util.List;
@@ -13,6 +14,7 @@ public class ServiciosEmpleado {
     RepositorioEmpleados rEmpleados;
     
     public List<Empleados> obtenerTodosLosEmpleados(){
+
         return rEmpleados.findAll();
     }
     
@@ -23,5 +25,12 @@ public class ServiciosEmpleado {
         }catch(Exception ex){
             return false;
         }
+    }
+    public Empleados obtenerPorId(Integer id) {
+        return rEmpleados.findById(id).orElse(null);
+    }
+
+    public void eliminar(Integer id){
+        rEmpleados.deleteById(id);
     }
 }
