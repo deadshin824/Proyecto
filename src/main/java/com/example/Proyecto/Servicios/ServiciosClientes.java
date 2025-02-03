@@ -30,6 +30,18 @@ public class ServiciosClientes {
         return rClientes.findById(id).orElse(null);
     }
 
+    public boolean actualizarCliente(Integer id, Clientes nuevoCliente) {
+        return rClientes.findById(id).map(clienteExistente -> {
+            clienteExistente.nombreCliente = nuevoCliente.nombreCliente;
+            clienteExistente.telefono = nuevoCliente.telefono;
+            clienteExistente.correo = nuevoCliente.correo;
+
+            rClientes.save(clienteExistente);
+            return true;
+        }).orElse(false);
+    }
+
+
     public void eliminar(Integer id){
         rClientes.deleteById(id);
     }

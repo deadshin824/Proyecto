@@ -44,6 +44,16 @@ public class ControladorClientes {
         }
     }
 
+    @PutMapping("/ActualizarCliente/{id}")
+    public ResponseEntity<String> actualizarCliente(@PathVariable Integer id, @RequestBody Clientes nuevoCliente) {
+        if (sClientes.actualizarCliente(id, nuevoCliente)) {
+            return ResponseEntity.ok("Cliente actualizado correctamente");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente no encontrado");
+        }
+    }
+
+
     @DeleteMapping("/EliminarCliente/{id}")
     public ResponseEntity<String> eliminarCliente(@PathVariable Integer id) {
         Clientes cliente = sClientes.obtenerPorId(id);
