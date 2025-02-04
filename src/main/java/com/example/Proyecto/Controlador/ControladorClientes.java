@@ -26,13 +26,15 @@ public class ControladorClientes {
     }
 
     @PostMapping("/InsertarClientes")
-    public List<Clientes> InsertarCliente(@RequestBody Clientes a){
-        if(sClientes.insertarClientes(a)){
-            return sClientes.obtenerTodosLosClientes();
-        }else{
-            return null;
+    public ResponseEntity<String> InsertarCliente(@RequestBody Clientes a){
+        boolean clienteInsertado = sClientes.insertarClientes(a);  // Intentar insertar el cliente
+        if (clienteInsertado) {
+            return ResponseEntity.ok("Cliente insertado correctamente");  // Mensaje de éxito
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al insertar el cliente");  // Mensaje de error
         }
     }
+
 
     @GetMapping("/ObtenerCliente/{id}")
     public ResponseEntity<?> obtenerClientePorId(@PathVariable Integer id) {
