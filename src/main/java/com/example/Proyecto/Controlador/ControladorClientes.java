@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/Clientes")
@@ -26,15 +28,16 @@ public class ControladorClientes {
     }
 
     @PostMapping("/InsertarClientes")
-    public ResponseEntity<String> InsertarClientes(@RequestBody Clientes cliente){
-        if(sClientes.insertarClientes(cliente)){
-            return ResponseEntity.ok("Cliente insertado correctamente");
+    public ResponseEntity<Map<String, String>> InsertarClientes(@RequestBody Clientes cliente) {
+        Map<String, String> response = new HashMap<>();
+        if (sClientes.insertarClientes(cliente)) {
+            response.put("mensaje", "Cliente insertado correctamente");
+            return ResponseEntity.ok(response);
         } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al insertar el cliente");
+            response.put("error", "Error al insertar el cliente");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
     }
-
-
 
     @GetMapping("/ObtenerCliente/{id}")
     public ResponseEntity<?> obtenerClientePorId(@PathVariable Integer id) {
