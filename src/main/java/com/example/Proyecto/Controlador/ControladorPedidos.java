@@ -27,13 +27,15 @@ public class ControladorPedidos {
     }
 
     @PostMapping("/InsertarPedidos")
-    public List<Pedidos> InsertarPedidos(@RequestBody Pedidos p){
-        if(sPedidos.insertarPedidos(p)){
-            return sPedidos.obtenerTodosLosPedidos();
-        }else{
-            return null;
+    public ResponseEntity<String> InsertarPedidos(@RequestBody Pedidos p){
+        boolean pedidoInsertado = sPedidos.insertarPedidos(p);  // Intentar insertar el pedido
+        if (pedidoInsertado) {
+            return ResponseEntity.ok("Pedido insertado correctamente");  // Mensaje de éxito
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al insertar el pedido");  // Mensaje de error
         }
     }
+
 
     @GetMapping("/ObtenerPedido/{id}")
     public ResponseEntity<?> obtenerPedidoPorId(@PathVariable Integer id) {
