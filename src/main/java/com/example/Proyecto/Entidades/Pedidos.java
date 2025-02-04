@@ -18,7 +18,7 @@ public class Pedidos {
 
     @ManyToOne
     @JoinColumn(name = "idCliente")  // Columna que será la clave foránea
-    private Clientes cliente;
+    public Clientes cliente;
 
     public Pedidos() {
     }
