@@ -17,9 +17,9 @@ public class ServiciosClientes {
         return rClientes.findAll();
     }
 
-    public boolean insertarClientes(Clientes a){
+    public boolean insertarClientes(Clientes cliente){
         try{
-            rClientes.save(a);
+            rClientes.save(cliente);
             return true;
         }catch(Exception ex){
             return false;
