@@ -50,23 +50,31 @@ public class ControladorClientes {
     }
 
     @PutMapping("/ActualizarCliente/{id}")
-    public ResponseEntity<String> actualizarCliente(@PathVariable Integer id, @RequestBody Clientes nuevoCliente) {
+    public ResponseEntity<Map<String, String>> actualizarCliente(@PathVariable Integer id, @RequestBody Clientes nuevoCliente) {
+        Map<String, String> response = new HashMap<>();
         if (sClientes.actualizarCliente(id, nuevoCliente)) {
-            return ResponseEntity.ok("Cliente actualizado correctamente");
+            response.put("mensaje", "Cliente actualizado correctamente");
+            return ResponseEntity.ok(response);
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente no encontrado");
+            response.put("error", "Cliente no encontrado");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
     }
+
 
 
     @DeleteMapping("/EliminarCliente/{id}")
-    public ResponseEntity<String> eliminarCliente(@PathVariable Integer id) {
+    public ResponseEntity<Map<String, String>> eliminarCliente(@PathVariable Integer id) {
+        Map<String, String> response = new HashMap<>();
         Clientes cliente = sClientes.obtenerPorId(id);
         if (cliente != null) {
             sClientes.eliminar(id);
-            return ResponseEntity.ok("Cliente eliminado correctamente");
+            response.put("mensaje", "Cliente eliminado correctamente");
+            return ResponseEntity.ok(response);
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente no encontrado");
+            response.put("error", "Cliente no encontrado");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
     }
+
 }
